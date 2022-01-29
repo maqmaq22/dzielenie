@@ -1,20 +1,52 @@
-﻿// dzielenie.cpp : Ten plik zawiera funkcję „main”. W nim rozpoczyna się i kończy wykonywanie programu.
-//
+﻿#include <iostream>
+#include <string>     
+#include <math.h>
+using namespace std;
+int main() {
+	string li1, li2, dl;
+	string napis2,napis1;
+	//cout << "jaka jesli 1 liczba?";
+	//cin >> li1;
+	//cout << "jaka jesli 2 liczba?";
+	//cin >> li2;
+	li1 = "458724";
+	li2 = "48";
+	napis1 = li1;
+	napis2 = li2;
+	int dziel = stoi(li2);
+	int suma = 0;
+	int ileCyfr1 = napis1.length();
+	int ileCyfr2 = napis2.length();
+	int x = 1;
+	int liczba1=0;
+	bool pierwszy_raz = true;
+	for (int i = ileCyfr2 - 1; i >= 0; i--) {
+		int cyfra1 = napis1[i] - '0';
 
-#include <iostream>
+			liczba1 = liczba1 + cyfra1 * x;
+			x = x * 10;
+		
+		cout << liczba1 << endl;
+	}
+	
+	if (liczba1 >= dziel) {
+		int wyn=liczba1 - (liczba1 / dziel)*dziel;
+		cout << "Wynik: ";
+	cout << wyn << endl;
+	}
+	else {
+		liczba1 = 0;
+		pierwszy_raz = true;
+		int x = 1;
+		for (int i = ileCyfr2; i >= 0; i--) {
+			int cyfra1 = napis1[i] - '0';
+				liczba1 = liczba1 + cyfra1 * x;
+				x = x * 10;
+			cout << liczba1 << endl;
+		}
+		int wyn = liczba1 - (liczba1 / dziel)*dziel;
+		cout << "Wynik: ";
+		cout << wyn << endl;
+	}
 
-int main()
-{
-    std::cout << "Hello World!\n";
 }
-
-// Uruchomienie programu: Ctrl + F5 lub menu Debugowanie > Uruchom bez debugowania
-// Debugowanie programu: F5 lub menu Debugowanie > Rozpocznij debugowanie
-
-// Porady dotyczące rozpoczynania pracy:
-//   1. Użyj okna Eksploratora rozwiązań, aby dodać pliki i zarządzać nimi
-//   2. Użyj okna programu Team Explorer, aby nawiązać połączenie z kontrolą źródła
-//   3. Użyj okna Dane wyjściowe, aby sprawdzić dane wyjściowe kompilacji i inne komunikaty
-//   4. Użyj okna Lista błędów, aby zobaczyć błędy
-//   5. Wybierz pozycję Projekt > Dodaj nowy element, aby utworzyć nowe pliki kodu, lub wybierz pozycję Projekt > Dodaj istniejący element, aby dodać istniejące pliku kodu do projektu
-//   6. Aby w przyszłości ponownie otworzyć ten projekt, przejdź do pozycji Plik > Otwórz > Projekt i wybierz plik sln
